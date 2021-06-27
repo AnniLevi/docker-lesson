@@ -1,0 +1,54 @@
+# собрать образ Docker
+docker build -t testproject .
+
+# показать все образы
+docker images
+
+# запустить testproject
+docker run -t testproject
+
+# запустить в интерактивном режим python версии 3.9
+# (сначала ищет локально, если нет - качает с docker hub)
+docker run -t python:3.9
+
+exit()
+
+
+# все запущенные контейнеры
+docker ps
+
+# зайти в интерактивном режиме в контейнер с именем <NAMES> и в нем запустить linux-консоль с root-правами
+docker exec -it name bin/bash
+
+# показать директории (в Ubuntu на виртуальной машине)
+ls
+
+# остановить работу контейнера
+docker stop name
+
+# зайти в командную оболочку bash в проекте testproject
+docker run -it testproject bash
+
+# управление образами
+docker image 
+docker image <команда> <имя_образа>
+
+# управление контейнерами
+docker container
+docker container <команда> <имя_контейнера>
+
+
+
+Docker Compose
+
+# пересобрать проект после внесения изменений в файл docker-compose.yml
+docker-compose build
+
+# запустить проект
+docker-compose up
+
+# остановить контейнер
+ctrl+c
+
+
+
