@@ -10,6 +10,14 @@ services:
       - ./Django-Books-Shop:/src
     ports:
       - "5000:8000"
-    command: sh -c "python3 manage.py runserver 0.0.0.0:8000"
+#    command: sh -c "python3 manage.py runserver 0.0.0.0:8000"
 #    command: ["sh", "-c", "python3 manage.py runserver 0.0.0.0:8000"]
-#    command: sh -c "python3 manage.py migrate & python3 manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python3 manage.py migrate & python3 manage.py runserver 0.0.0.0:8000"
+    env_file:
+      - db_keys.txt    # файл с переменными виртуального окружения
+    
+  db:
+    image: postgres:latest
+    container_name: my_db
+    env_file:
+      - db_keys.txt
