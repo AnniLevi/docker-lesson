@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django_web
+    volumes:
+      - ./Django-Books-Shop:/src
+    ports:
+      - "5000:8000"
+    command: sh -c "python3 manage.py runserver 0.0.0.0:8000"
+#    command: ["sh", "-c", "python3 manage.py runserver 0.0.0.0:8000"]
+#    command: sh -c "python3 manage.py migrate & python3 manage.py runserver 0.0.0.0:8000"
