@@ -29,6 +29,19 @@ docker stop name
 # зайти в командную оболочку bash в проекте testproject
 docker run -it testproject bash
 
+# запустить контейнер в режиме detach - фоновом режиме, не в консоли
+docker run -d container_name
+
+# -p (port) - перенаправляет порт Docker 8000 на порт 1000 компьютера, на котором выполняется контейнер
+docker run -d container_name -p 1000:8000
+
+
+
+# запуск Postgres (-e - environment)
+docker run -e POSTGRES_PASSWORD=useruser -e POSTGRES_USER=admin -e POSTGRES_DB=django_db -p 5432:5432 -d postgres
+
+
+
 # управление образами
 docker image 
 docker image <команда> <имя_образа>
